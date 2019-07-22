@@ -1,0 +1,28 @@
+- hosts: pca_frontend
+  become: yes
+  tasks:
+    - name: sync
+      synchronize:
+        src: "../../"
+        dest: /srv/webapp/planetsclub-web
+        owner: no
+        recursive: true
+        rsync_opts:
+          - '--include=/ecosystem.config.js'
+          - '--include=/package.json'
+          - '--include=/nuxt.config.ts'
+          - '--include=/tsconfig.json'
+          - '--include=/.nuxt/***'
+          - '--include=/static/***'
+          - '--exclude=/***'
+          - '--exclude=/.*'
+          - '--exclude=/.*/***'
+          - '--exclude=/.***'
+
+    - name: yarn install
+      command: yarn install
+      args:
+          chdir: /srv/webapp/planetsclub-web
+
+    - name: zero-downtime reloading
+      command: pm2 reload planetsclub-web

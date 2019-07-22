@@ -1,0 +1,70 @@
+{
+  "name": "planetsclub-web",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "lint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore .",
+    "lintfix": "eslint --fix --ext .js,.ts,.vue --ignore-path .gitignore .",
+    "test:unit": "jest",
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "lint-staged": {
+    "*.{js,ts,vue}": "yarn lint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "dependencies": {
+    "@nuxtjs/component-cache": "^1.1.5",
+    "@nuxtjs/proxy": "^1.3.3",
+    "@nuxtjs/pwa": "^3.0.0-beta.16",
+    "apollo-cache-inmemory": "^1.6.3",
+    "apollo-client": "^2.6.4",
+    "apollo-link-http": "^1.5.15",
+    "apollo-link-ws": "^1.0.18",
+    "date-fns": "2.0.0-beta.4",
+    "graphql": "^14.4.2",
+    "graphql-tag": "^2.10.1",
+    "isomorphic-unfetch": "^3.0.0",
+    "nuxt": "^2.8.1",
+    "nuxt-buefy": "^0.3.13",
+    "subscriptions-transport-ws": "^0.9.16",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3",
+    "vue-apollo": "^3.0.0-rc.2"
+  },
+  "devDependencies": {
+    "@nuxt/typescript": "^2.8.1",
+    "@nuxtjs/eslint-config": "^1.1.2",
+    "@types/graphql": "^14.2.3",
+    "@types/jest": "^24.0.17",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
+    "@vue/test-utils": "^1.0.0-beta.29",
+    "babel-jest": "^24.8.0",
+    "codecov": "^3.5.0",
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-graphql": "^3.0.3",
+    "eslint-plugin-nuxt": "^0.4.3",
+    "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^3.0.3",
+    "jest": "^24.8.0",
+    "jest-serializer-vue": "^2.0.2",
+    "jest-transform-stub": "^2.0.0",
+    "lint-staged": "^9.2.1",
+    "node-sass": "^4.12.0",
+    "prettier": "^1.18.2",
+    "sass-loader": "^7.2.0",
+    "ts-jest": "^24.0.2",
+    "ts-loader": "^6.0.4",
+    "vue-class-component": "^7.1.0",
+    "vue-jest": "^4.0.0-beta.2",
+    "vue-property-decorator": "^8.2.1"
+  }
+}

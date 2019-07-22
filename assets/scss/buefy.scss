@@ -1,0 +1,22 @@
+@import "./variables.scss";
+
+@import "bulma/sass/utilities/_all.sass";
+
+@import "bulma";
+
+@import "buefy/src/scss/buefy.scss";
+
+.level.is-mobile .level-item:last-child {
+  margin-right: 0;
+}
+
+@include desktop {
+  .table thead th {
+    position: -webkit-sticky;
+    position: sticky;
+    background-color: white;
+    top: var(--header-space);
+    transition: top 0.15s ease-out;
+    z-index: 30;
+  }
+}

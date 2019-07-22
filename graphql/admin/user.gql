@@ -1,0 +1,88 @@
+query users(
+  $first: Int = 20, $after: String,
+  $last: Int = 20, $before: String,
+  $q: String = "",
+  $includeDeactivated: Boolean = false
+  ) {
+  users(
+    q: $q, includeDeactivated: $includeDeactivated,
+    first: $first, after: $after,
+    last: $last, before: $before
+  ) {
+    items {
+      id
+      realName
+      isAdmin
+      isMember
+      email
+      pictureUri
+      isActive
+    }
+  }
+}
+
+query user($id: ID!) {
+  user(id: $id) {
+    id
+    realName
+    googleId
+    pictureUri
+    isAdmin
+    isMember
+    email
+    createdAt
+    updatedAt
+    deleted
+  }
+}
+
+query me {
+  me {
+    id
+    isAuthenticated
+    realName
+    isAdmin
+    pictureUri
+    googleId
+  }
+}
+
+mutation logout {
+  logout {
+    result
+  }
+}
+
+mutation addAdminRole($id: ID!) {
+  addAdminRole(id: $id) {
+    id
+    isAdmin
+  }
+}
+
+mutation removeAdminRole($id: ID!) {
+  removeAdminRole(id: $id) {
+    id
+    isAdmin
+  }
+}
+
+mutation deactivate($id: ID!) {
+  deactivateUser(id: $id) {
+    user {
+      id
+      isActive
+      updatedAt
+    }
+  }
+}
+
+mutation activate($id: ID!) {
+  activateUser(id: $id) {
+    user {
+      id
+      isActive
+      updatedAt
+    }
+  }
+}

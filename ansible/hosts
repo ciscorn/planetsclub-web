@@ -1,0 +1,5 @@
+[pca_frontend]
+vu3.jjp.jp
+
+[pca_frontend:vars]
+ansible_port=22022

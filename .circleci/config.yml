@@ -1,0 +1,54 @@
+version: 2
+jobs:
+  test:
+    docker:
+      - image: circleci/node:12.8.0-buster
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+      - run: yarn install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - run: yarn test:unit
+  deploy:
+    docker:
+      - image: circleci/node:12.8.0-buster
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+      - run: yarn install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - run: yarn build
+      - run: python3 pre_gzip.py
+      - run:
+          name: Installing rsync
+          command: sudo apt install -y rsync ansible
+      - run:
+          name: SSH setting
+          command: mkdir -p ~/.ssh/ && echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+      - run:
+          name: Deploying
+          command: ansible-playbook -i ansible/hosts ansible/deploy.yml --user=cicd -v
+
+workflows:
+  version: 2
+  test-and-deploy:
+    jobs:
+      - test
+      - deploy:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
