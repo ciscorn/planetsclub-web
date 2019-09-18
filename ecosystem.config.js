@@ -3,7 +3,7 @@ module.exports = {
   apps: [
     {
       name: 'planetsclub-web',
-      script: './node_modules/.bin/nuxt',
+      script: './node_modules/.bin/nuxt-ts',
       args: 'start --port 3005 --modern=server',
       exec_mode: 'cluster',
       instances: 0,

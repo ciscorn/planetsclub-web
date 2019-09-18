@@ -4,7 +4,7 @@ export function makeAuthViewerQuery({
   memberOnly = true,
   adminOnly = false
 } = {}) {
-  function check(ctx, { loading, data }) {
+  function check(ctx: any, { loading, data }) {
     if (loading) {
       return
     }

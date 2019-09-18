@@ -2,7 +2,7 @@ version: 2
 jobs:
   test:
     docker:
-      - image: circleci/node:12.8.0-buster
+      - image: circleci/node:12.9.0-buster
     working_directory: ~/repo
     steps:
       - checkout
@@ -17,7 +17,7 @@ jobs:
       - run: yarn test:unit
   deploy:
     docker:
-      - image: circleci/node:12.8.0-buster
+      - image: circleci/node:12.9.0-buster
     working_directory: ~/repo
     steps:
       - checkout

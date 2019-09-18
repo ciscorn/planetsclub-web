@@ -1,15 +1,10 @@
 module.exports = {
   root: true,
-  parserOptions: {
-    parser: "@typescript-eslint/parser",
-    //project: "./tsconfig.json"
-  },
   extends: [
-    "@nuxtjs",
-    "plugin:@typescript-eslint/recommended",
+    "@nuxtjs/eslint-config-typescript",
     "plugin:nuxt/recommended",
     "plugin:prettier/recommended",
-	  "prettier/@typescript-eslint",
+    "prettier/@typescript-eslint",
     "prettier/babel",
     "prettier/standard",
     "prettier/unicorn",

@@ -3,13 +3,14 @@ import { HttpLink } from 'apollo-link-http'
 import { WebSocketLink } from 'apollo-link-ws'
 import { getMainDefinition } from 'apollo-utilities'
 import { InMemoryCache } from 'apollo-cache-inmemory'
+import { Context } from '@nuxt/types'
 
 interface Definition {
   kind: string
   operation?: string
 }
 
-export default ({ isDev, req }) => {
+export default ({ isDev, req }: Context) => {
   // http link
   const httpLink = new HttpLink({
     uri:

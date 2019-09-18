@@ -4,9 +4,9 @@
     "module": "esnext",
     "moduleResolution": "node",
     "lib": [
+      "dom",
       "esnext",
-      "esnext.asynciterable",
-      "dom"
+      "esnext.asynciterable"
     ],
     "esModuleInterop": true,
     "experimentalDecorators": true,
@@ -14,6 +14,7 @@
     "sourceMap": true,
     "strict": true,
     "noImplicitAny": false,
+   // "skipLibCheck": true,
     "noEmit": true,
     "baseUrl": ".",
     "outDir": "tsc.js",
@@ -24,7 +25,7 @@
     "types": [
       "node",
       "jest",
-      "@nuxt/vue-app",
+      "@nuxt/types",
       "buefy/types"
     ]
   }

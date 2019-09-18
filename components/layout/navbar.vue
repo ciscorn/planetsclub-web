@@ -151,10 +151,19 @@ export default Vue.extend({
       update(data) {
         return data.me
       },
-      fetchPolicy: 'cache-first',
-      prefetch: true
+      fetchPolicy: 'cache-first'
     }
   },
+  // apollo: {
+  //  me: {
+  //    query: userQueries.me,
+  //    update(data) {
+  //      return data.me
+  //    },
+  //    fetchPolicy: 'cache-first'
+  //    // prefetch: true
+  //  }
+  // },
   watch: {
     '$route.fullPath': {
       handler() {

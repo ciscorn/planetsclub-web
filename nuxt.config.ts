@@ -1,11 +1,11 @@
 import path from 'path'
 import fs from 'fs'
-import NuxtConfiguration from '@nuxt/config'
+import { Configuration } from '@nuxt/types'
 
 const apiBaseUrl = (process.env.PLA_API_BASEURL ||
   'https://pctemp.joetsutj.com') as string
 
-export const nuxtConfig: NuxtConfiguration = {
+const nuxtConfig: Configuration = {
   mode: 'universal',
   modern: true,
   env: {
@@ -93,10 +93,11 @@ export const nuxtConfig: NuxtConfiguration = {
     linkExactActiveClass: 'is-exact-active'
   },
   plugins: [
-    '~plugins/date-fns.js',
-    '~plugins/vue-apollo.js',
-    '~plugins/facebook-sdk.js',
-    '~plugins/ga.js'
+    '@/plugins/date-fns',
+    '@/plugins/facebook-sdk',
+    '@/plugins/ga',
+    '@/plugins/vue-apollo',
+    '@/plugins/vue-composition-api'
   ],
   modules: [
     '@nuxtjs/proxy',
@@ -108,11 +109,12 @@ export const nuxtConfig: NuxtConfiguration = {
   proxy: {
     '/api/': process.env.PLA_REMOTE_API_BASEURL || 'http://localhost:8005'
   },
+  buildModules: ['@nuxt/typescript-build'],
   build: {
     publicPath: '/static/',
     extractCSS: true,
     optimizeCSS: true,
-    hardSource: true,
+    // hardSource: true,
     // extend(config, { loaders: { scss } }) {
     extend(config) {
       // scss.implementation = require('sass')
