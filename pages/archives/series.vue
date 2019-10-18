@@ -76,6 +76,12 @@ const VIDEO_SERIES = [
       'http://wakusei2nd.com/wp-content/uploads/2016/11/HANGOUTPLUS_everynight_16-9.jpg'
   },
   {
+    title: 'ゲーム・オブ・ザ・ラウンド',
+    search: 'ゲーム・オブ・ザ・ラウンド',
+    image:
+      'https://scontent.xx.fbcdn.net/v/t15.5256-10/s720x720/72732723_2553630921361171_9051254301959127040_n.jpg?_nc_cat=104&_nc_oc=AQm8dctu1aJFXH7Eu6JeVeTlqGC14M4GcVG_73GzMN90nfVwE9aHx8xSzpps5B9avKM&_nc_ht=scontent.xx&oh=0bae08df145aecec28d1e0653ffe8d49&oe=5E5E761B'
+  },
+  {
     title: '木曜解放区',
     search: '木曜解放区 type:video',
     image:

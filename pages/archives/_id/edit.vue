@@ -140,7 +140,7 @@ export default Vue.extend({
       deep: true
     }
   },
-  beforeRouteLeave(to, from, next) {
+  beforeRouteLeave(_to, _from, next) {
     if (!this.edited) {
       return next()
     }
